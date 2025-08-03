@@ -1,14 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
-import emoji
+import os
 import re
 
-# Correct MongoDB connection string
-client = MongoClient(
-    'mongodb+srv://notesuser:crodietwotwos@notes-cluster.ulgwmic.mongodb.net/?retryWrites=true&w=majority',
-    tlsAllowInvalidCertificates=True
-)
+client = MongoClient(os.getenv("MONGODB_URI"), tlsAllowInvalidCertificates=True)
 
 db = client.notesApp
 notes_collection = db.notes
