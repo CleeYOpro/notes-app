@@ -43,17 +43,56 @@ function App() {
   }, []);
 
   return (
-    <div style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'Arial, sans-serif' }}>
-      <h1>My Notes</h1>
+    <div
+      style={{
+        maxWidth: 600,
+        margin: '40px auto',
+        fontFamily: 'Arial, sans-serif',
+        background: 'rgba(10,10,10,0.85)',
+        minHeight: '100vh',
+        padding: 32,
+        borderRadius: 24,
+        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        border: '1px solid rgba(255,255,255,0.18)',
+        backdropFilter: 'blur(12px)',
+        color: '#fff',
+      }}
+    >
+      <h1 style={{ textAlign: 'center', fontWeight: 700, letterSpacing: 2, color: '#fff', textShadow: '0 2px 16px #000' }}>My Notes</h1>
       <div>
         <input
-          style={{ width: '70%', padding: '8px', fontSize: '1rem' }}
+          style={{
+            width: '70%',
+            padding: '8px',
+            fontSize: '1rem',
+            background: 'rgba(255,255,255,0.08)',
+            border: '1.5px solid rgba(255,255,255,0.25)',
+            borderRadius: 8,
+            color: '#fff',
+            outline: 'none',
+            marginBottom: 8,
+            backdropFilter: 'blur(8px)',
+          }}
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
           placeholder="Write a new note"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') addNote();
+          }}
         />
         <button
-          style={{ padding: '8px 12px', marginLeft: 8, fontSize: '1rem' }}
+          style={{
+            padding: '8px 12px',
+            marginLeft: 8,
+            fontSize: '1rem',
+            background: 'rgba(255,255,255,0.12)',
+            color: '#fff',
+            border: '1.5px solid rgba(255,255,255,0.25)',
+            borderRadius: 8,
+            cursor: 'pointer',
+            backdropFilter: 'blur(8px)',
+            transition: 'background 0.2s',
+          }}
           onClick={addNote}
         >
           Add
@@ -64,17 +103,33 @@ function App() {
           <li
             key={idx}
             style={{
-              marginBottom: 12,
-              padding: 10,
-              backgroundColor: '#f2f2f2',
-              borderRadius: 6,
+              marginBottom: 16,
+              padding: 16,
+              background: 'rgba(255,255,255,0.08)',
+              borderRadius: 16,
+              border: '1.5px solid rgba(255,255,255,0.18)',
               display: 'flex',
               justifyContent: 'space-between',
+              alignItems: 'center',
+              boxShadow: '0 4px 24px 0 rgba(31, 38, 135, 0.17)',
+              backdropFilter: 'blur(8px)',
+              color: '#fff',
             }}
           >
-            <span>{note.content}</span>
+            <span style={{ fontSize: '1.1rem', wordBreak: 'break-word' }}>{note.content}</span>
             <button
-              style={{ background: 'red', color: 'white', border: 'none', padding: '4px 8px', cursor: 'pointer' }}
+              style={{
+                background: 'rgba(255,0,0,0.15)',
+                color: '#fff',
+                border: '1.5px solid rgba(255,255,255,0.25)',
+                borderRadius: 8,
+                padding: '4px 12px',
+                cursor: 'pointer',
+                marginLeft: 12,
+                fontWeight: 600,
+                backdropFilter: 'blur(8px)',
+                transition: 'background 0.2s',
+              }}
               onClick={() => deleteNote(note.content)}
             >
               Delete
