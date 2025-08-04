@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const BASE_URL = 'https://notes-app-rbx9.onrender.com'; // 🌐 Backend URL here
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
@@ -8,7 +10,7 @@ function App() {
   // Fetch notes from Flask backend
   const fetchNotes = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:5000/notes');
+      const res = await axios.get(`${BASE_URL}/notes`);
       setNotes(res.data);
     } catch (error) {
       console.error('Failed to fetch notes:', error);
@@ -19,7 +21,7 @@ function App() {
   const addNote = async () => {
     if (!newNote.trim()) return;
     try {
-      await axios.post('http://127.0.0.1:5000/notes', { content: newNote });
+      await axios.post(`${BASE_URL}/notes`, { content: newNote });
       setNewNote('');
       fetchNotes();
     } catch (error) {
@@ -30,7 +32,7 @@ function App() {
   // Delete a note
   const deleteNote = async (content) => {
     try {
-      await axios.delete('http://127.0.0.1:5000/notes', { data: { content } });
+      await axios.delete(`${BASE_URL}/notes`, { data: { content } });
       fetchNotes();
     } catch (error) {
       console.error('Failed to delete note:', error);
