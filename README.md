@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/jotpop-title.png" alt="JotPop" width="180" /><br>
-  <h1>JOTpop ✏️✨</h1>
+  <h1>JotPop ✏️✨</h1>
 </p>
 
 <table>
@@ -15,7 +14,7 @@
 </table>
 
 ## 🚀 Why I Built This
-I built **JOTpop** as a **learning project to master cloud services like Render and Vercel**, while integrating **MongoDB Atlas** for a scalable backend database. This project helped me understand:
+I built **JotPop** as a **learning project to master cloud services like Render and Vercel**, while integrating **MongoDB Atlas** for a scalable backend database. This project helped me understand:
 - How to deploy full-stack apps to cloud platforms
 - Working with **MongoDB Atlas clusters** and managing databases in the cloud
 - Backend development with **Flask and REST APIs**
