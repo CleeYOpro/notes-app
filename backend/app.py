@@ -126,7 +126,7 @@ def replace_emoji_words(text):
 
 @app.route('/notes', methods=['GET'])
 def get_notes():
-    notes = list(notes_collection.find({}, {"_id": 0})) 
+    notes = list(notes_collection.find({}, {"_id": 0}))
     return jsonify(notes)
 
 @app.route('/notes', methods=['POST'])
@@ -134,8 +134,7 @@ def add_note():
     data = request.get_json()
     content = replace_emoji_words(data.get('content', ''))
     note = {
-        "content": content,
-        "timestamp": datetime.utcnow().isoformat() + "Z"
+        "content": content
     }
     notes_collection.insert_one(note)
     return jsonify({"message": "Note added"}), 201
@@ -143,7 +142,7 @@ def add_note():
 @app.route('/notes', methods=['DELETE'])
 def delete_note():
     data = request.json
-    notes_collection.delete_one({"timestamp": data['timestamp']})
+    notes_collection.delete_one({"content": data['content']})
     return jsonify({"msg": "Note deleted!"})
 
 if __name__ == '__main__':

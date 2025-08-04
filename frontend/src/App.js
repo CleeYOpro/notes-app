@@ -42,9 +42,9 @@ function App() {
   };
 
   // Delete a note
-  const deleteNote = async (timestamp) => {
+  const deleteNote = async (content) => {
     try {
-      await axios.delete(`${BASE_URL}/notes`, { data: { timestamp } });
+      await axios.delete(`${BASE_URL}/notes`, { data: { content } });
       fetchNotes();
     } catch (error) {
       console.error('Failed to delete note:', error);
@@ -237,9 +237,9 @@ function App() {
         marginBottom: 0,
         width: '100%',
       }}>
-        {notes.map((note) => (
+        {notes.map((note, idx) => (
           <li
-            key={note.timestamp}
+            key={idx}
             style={{
               marginBottom: 16,
               padding: 16,
@@ -258,9 +258,6 @@ function App() {
             }}
           >
             <span style={{ fontSize: '1.13rem', marginBottom: 4 }}>{note.content}</span>
-            <span style={{ fontSize: '0.85rem', color: '#bbb', marginBottom: 8 }}>
-              {note.timestamp ? new Date(note.timestamp).toLocaleString() : ''}
-            </span>
             <button
               style={{
                 background: 'rgba(255,0,0,0.18)',
@@ -275,7 +272,7 @@ function App() {
                 alignSelf: 'flex-end',
                 fontSize: '0.98rem',
               }}
-              onClick={() => deleteNote(note.timestamp)}
+              onClick={() => deleteNote(note.content)}
             >
               Delete
             </button>
