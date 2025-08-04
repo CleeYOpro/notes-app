@@ -143,7 +143,7 @@ def add_note():
 @app.route('/notes', methods=['DELETE'])
 def delete_note():
     data = request.json
-    notes_collection.delete_one({"content": data['content']})
+    notes_collection.delete_one({"timestamp": data['timestamp']})
     return jsonify({"msg": "Note deleted!"})
 
 if __name__ == '__main__':
