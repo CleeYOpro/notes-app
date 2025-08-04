@@ -3,6 +3,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 import os
 import re
+from datetime import datetime
 
 client = MongoClient(os.getenv("MONGODB_URI"), tlsAllowInvalidCertificates=True)
 
@@ -131,10 +132,13 @@ def get_notes():
 @app.route('/notes', methods=['POST'])
 def add_note():
     data = request.get_json()
-    content = data.get('content', '')
-    content = replace_emoji_words(content)
-    notes_collection.insert_one({"content": content})
-    return jsonify({"msg": "Note added!"})
+    content = replace_emoji_words(data.get('content', ''))
+    note = {
+        "content": content,
+        "timestamp": datetime.utcnow().isoformat() + "Z"
+    }
+    notes_collection.insert_one(note)
+    return jsonify({"message": "Note added"}), 201
 
 @app.route('/notes', methods=['DELETE'])
 def delete_note():
