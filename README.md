@@ -6,7 +6,7 @@
 <table>
   <tr>
     <td width="50%" valign="top">
-      <strong>A simple full-stack notes app</strong> with a modern glassmorphism UI and emoji word replacement — built to explore cloud services and MongoDB for scaling bigger projects in the future.
+      <strong>A simple full-stack notes app</strong> with a modern glassmorphism UI and emoji word replacement: built to explore cloud services and MongoDB for scaling bigger projects in the future.
     </td>
     <td width="50%">
       <img src="imgs/jotpop.png" width="100%"/>
@@ -15,7 +15,7 @@
 </table>
 
 ## 🚀 Why I Built This
-I built **JOTpop** as a **learning project to master cloud services like <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/render-logo.png" alt="Render" height="18"/> Render and <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/vercel-logo.svg" alt="Vercel" height="18"/> Vercel**, while integrating <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/mongodb-logo.svg" alt="MongoDB" height="18"/> **MongoDB Atlas** for a scalable backend database. This project helped me understand:
+I built **JOTpop** as a **learning project to master cloud services like Render and Vercel**, while integrating **MongoDB Atlas** for a scalable backend database. This project helped me understand:
 - How to deploy full-stack apps to cloud platforms
 - Working with **MongoDB Atlas clusters** and managing databases in the cloud
 - Backend development with **Flask and REST APIs**
@@ -27,24 +27,24 @@ I built **JOTpop** as a **learning project to master cloud services like <img sr
 ## 🔗 How It Works (Architecture)
 ```mermaid
 graph TD;
-    User(Device) -->|Request| Frontend[Vercel (React App)]
-    Frontend -->|API Calls| Backend[Render (Flask API)]
-    Backend -->|Database Ops| MongoDBAtlas[MongoDB Atlas Cluster]
-    Backend -->|Returns Data| Frontend
-    Frontend -->|Shows Notes| User
+    User_Device -->|Request| Frontend_Vercel_ReactApp
+    Frontend_Vercel_ReactApp -->|API Calls| Backend_Render_FlaskAPI
+    Backend_Render_FlaskAPI -->|Database Ops| MongoDBAtlas_Cluster
+    Backend_Render_FlaskAPI -->|Returns Data| Frontend_Vercel_ReactApp
+    Frontend_Vercel_ReactApp -->|Shows Notes| User_Device
 ```
 
 ---
 
 ## ✨ Features
 - Add and delete notes from any device, anywhere, anytime
-- Notes are saved in <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/mongodb-logo.svg" alt="MongoDB" height="16"/> MongoDB Atlas and globally accessible
+- Notes are saved in MongoDB Atlas and globally accessible
 - Type words like `joy`, `party`, or `cake` — they turn into emojis automatically!
 - Sleek dark glassmorphism UI, mobile-friendly
 
 ---
 
-## 🖥️ Screenshots
+## 🖥️ How Dashboards Look
 <p align="center">
   <img src="imgs/mongo.png" alt="MongoDB"/>
   &nbsp;&nbsp;&nbsp;
@@ -57,7 +57,7 @@ graph TD;
 
 ## 🛠️ Getting Started
 
-### Backend <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/render-logo.png" alt="Render" height="18"/>
+### Backend
 1. **Install dependencies:**
     ```bash
     pip install flask flask-cors pymongo
@@ -71,7 +71,7 @@ graph TD;
     python app.py
     ```
 
-### Frontend <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/vercel-logo.svg" alt="Vercel" height="18"/>
+### Frontend
 1. **Install dependencies:**
     ```bash
     npm install
@@ -103,15 +103,10 @@ graph TD;
 ---
 
 ## ⚡ Stack Used
-- React.js (<img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/vercel-logo.svg" alt="Vercel" height="16"/> Vercel hosted)
-- Flask (Python) (<img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/render-logo.png" alt="Render" height="16"/> Render hosted)
-- <img src="https://raw.githubusercontent.com/CleeYOpro/notes-app/main/screenshots/mongodb-logo.svg" alt="MongoDB" height="16"/> MongoDB Atlas
+- React.js (Vercel hosted)
+- Flask (Python) (Render hosted)
+- MongoDB Atlas
 - Axios (HTTP Client)
 - Glassmorphism UI Design
 
 ---
-
-### What next?
-→ Replace the `#` in `[Live App](#)` with your Vercel URL.  
-→ Add your screenshots inside a `/screenshots` folder in the repo.  
-→ Commit & Push this README.md.
